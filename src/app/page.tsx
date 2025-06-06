@@ -1,19 +1,36 @@
-import Image from "next/image";
-import Estoque from "../components/Estoque";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col place-items-center">
-      <h1>Controle de Estoque</h1>
-      <div className="justify-between">
-        <button className="border-2 rounded p-2">
-          Cadastrar novo componente de estoque
-        </button>
+    <div className="flex flex-col items-center">
+      <h1 className="mt-10 text-3xl">Sistema para Gestão de Estoque Modular</h1>
+
+      <div className=" flex flex-row mt-10">
         <p className="border-2 rounded p-2">
-          <Link href='/estoque'>Visualizar estoque geral</Link>
+          <Link href='/estoque'>Visualizar Estoque Geral</Link>
+        </p>
+
+        <p className="border-2 rounded p-2 ml-5">
+          <Link href='/'>Visualizar Registros de Entrada/Saída</Link>
         </p>
       </div>
+
+      <div className="flex flex-row mt-10">
+        <p className="border-2 rounded p-2 ml-5">
+          <Link href='/'>Cadastrar novo módulo de estoque</Link>
+        </p>
+      </div>
+
+      <div className="flex flex-row mt-10">
+        <p className="border-2 rounded p-2 ml-5">
+          <Link href='/'>Nova Entrada</Link>
+        </p>
+
+        <p className="border-2 rounded p-2 ml-5">
+          <Link href='/'>Nova Saída</Link>
+        </p>
+      </div>
+
     </div>
   );
 }
