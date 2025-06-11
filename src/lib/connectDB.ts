@@ -14,9 +14,11 @@ if (!DATABASE_URL) {
 }
 
 // Define a global variable to cache the connection
+// @ts-ignore
 let cached = global.mongoose
 
 if (!cached) {
+  // @ts-ignore
   cached = global.mongoose = { conn: null, promise: null };
 }
 

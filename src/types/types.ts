@@ -5,8 +5,8 @@ export type Item = {
 	quantidade: number,
 	quantidade_minimo: number,
 }
-
-export type EstoqueForm = {
+	
+export type Estoque = {
 	id: string,
 	nome: string,
 	local: string,
@@ -17,6 +17,6 @@ export type EstoqueForm = {
 export type Registros = {
 	id: string,
 	data_adicionado: string,
-	item: Item,
+	itens: Item[],
 }
 
