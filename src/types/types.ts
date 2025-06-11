@@ -1,15 +1,22 @@
 
-export type EstoqueItem = {
-	id: string;
-	nome: string;
-	quantidade: number;
-	quantidade_minimo: number;
+export type Item = {
+	id: string,
+	nome: string,
+	quantidade: number,
+	quantidade_minimo: number,
 }
 
 export type EstoqueForm = {
-	nome: string;
-	local: string;
-	descricao: string;
-	data: string;
-	itens: EstoqueItem[];
+	id: string,
+	nome: string,
+	local: string,
+	descricao: string,
+	itens: Item[],
 }
+
+export type Registros = {
+	id: string,
+	data_adicionado: string,
+	item: Item,
+}
+

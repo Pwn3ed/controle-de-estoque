@@ -4,7 +4,7 @@
 import mongoose from "mongoose"
 
 // Define the MongoDB connection string
-console.log("DEBUG: "+process.env.TEST)
+console.log("DEBUG: " + process.env.TEST)
 const DATABASE_URL = process.env.DATABASE_URL || ''
 
 if (!DATABASE_URL) {
