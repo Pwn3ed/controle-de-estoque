@@ -1,5 +1,10 @@
+import { Estoque } from "@/types/types";
 
-const Estoque = () => {
+type EstoqueComponentProps = {
+  estoque: Estoque
+};
+
+const EstoqueComponent = ({ estoque }: EstoqueComponentProps) => {
   return (
     <h1>Componente de Estoque</h1>
 
@@ -7,4 +12,4 @@ const Estoque = () => {
   )
 };
 
-export default Estoque;
+export default EstoqueComponent;

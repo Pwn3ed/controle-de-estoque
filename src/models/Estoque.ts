@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
 
-const itemSchema = new mongoose.Schema({
+const itemEstoqueSchema = new mongoose.Schema({
   id: String,
   nome: String,
+	descricao: String,
   quantidade: Number,
   quantidade_minimo: Number
 });
@@ -12,10 +13,16 @@ const estoqueSchema = new mongoose.Schema({
     nome: String,
     local: String,
     descricao: String,
-    itens: [itemSchema]
+    itens: [itemEstoqueSchema]
 });
 
-// const Estoque = mongoose.models.Estoque;
-const Estoque = mongoose.models.Estoque || mongoose.model('Estoque', estoqueSchema);
+const registroSchema = new mongoose.Schema({
+	id: String,
+	data_adicionado: String,
+	estoque: estoqueSchema
+});
 
-export default Estoque;
+
+const Registro = mongoose.models.Registro || mongoose.model('Registro', registroSchema);
+
+export default Registro;
