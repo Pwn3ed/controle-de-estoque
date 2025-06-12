@@ -1,25 +1,25 @@
 // 'use client'
 
-import EstoqueComponent from '@/components/Estoque';
+import RegistroCard from '@/components/RegistroCard';
+import EstoqueComponent from '@/components/RegistroCard';
 import { getEstoque } from '@/lib/estoqueDB'
+import { IEstoque, IRegistro } from '@/types/types';
 
 const Estoque = async () => {
 
-    const estoqueGeral = await getEstoque();
-    console.log(estoqueGeral)
-    // const item1 = estoqueGeral[0].itens[0].nome
+    const registros:IRegistro[] = await getEstoque();
+    console.log("DEBUG: ")
+    console.log(registros[0].estoque.itens[0].nome)
 
     return (
         <div className="flex flex-col items-center">
-            <h1>Estoque Geral</h1>
-
-            {/* <h2>{item1}</h2> */}
+            {/* <h1>Estoque Geral</h1> */}
 
             <div>
-                {estoqueGeral.map( (estoque) => {
+                {registros.map( (registro) => {
                     return (
-                        // <EstoqueComponent key={estoque.id} estoque={estoque}/>
-                        <h1 key={estoque.id}>salve</h1>
+                        <RegistroCard registro={registro} />
+                        // <h2>{registro.estoque.itens[1].nome}</h2>
                     ) 
                 } )}
             </div>

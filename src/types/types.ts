@@ -1,23 +1,26 @@
+import { Types } from "mongoose"
 
-export type ItemEstoque = {
-	id: string,
+export type IItemEstoque = {
+	_id?: Types.ObjectId,
 	nome: string,
 	descricao?: string,
 	quantidade: number,
 	quantidade_minimo: number,
+	preco?: number,
+	unidade?: number,
 }
 	
-export type Estoque = {
-	id: string,
+export type IEstoque = {
+	_id?: Types.ObjectId,
 	nome: string,
 	local: string,
-	descricao: string,
-	itens: ItemEstoque[],
+	descricao?: string,
+	itens: IItemEstoque[],
 }
 
-export type Registros = {
-	id: string,
-	data_adicionado: string,
-	estoque: Estoque
+export type IRegistro = {
+	estoque: IEstoque,
+	// createdAt: Date,
+	// updatedAt: Date,
 }
 

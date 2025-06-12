@@ -1,6 +1,6 @@
-import Registro from '@/models/Estoque.ts';
+import { Registro } from '@/models/models.ts';
 import connectDB from '../../lib/connectDB.ts';
-import { Registros, ItemEstoque} from '../../types/types.ts'
+import registros from './registros.json'
 
 export default async function Seeds() {
 
@@ -11,29 +11,8 @@ export default async function Seeds() {
       console.log("Error na conexão com banco de dados: " + err);
     })
 
-  const registros: Registros = {
-    id: '1',
-    data_adicionado: '10/06/2025',
-    estoque: {
-      id: '1',
-      nome: 'Estoque Principal',
-      local: "Matriz",
-      descricao: "Estoque principal da empresa",
-      itens: [
-        {
-          id: '1',
-          nome: 'Camera Intelbras',
-          quantidade: 1,
-          quantidade_minimo: 0
-        }
-      ]
-    }
-  }
-
-
   console.log(registros)
 
-  // Estoque.insertOne(registros)
   await new Registro(registros).save()
 
   return (
