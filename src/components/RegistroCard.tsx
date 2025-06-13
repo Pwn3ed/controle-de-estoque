@@ -7,10 +7,16 @@ type RegistroCardProps = {
 const RegistroCard = ({ registro }: RegistroCardProps) => {
   return (
     <div>
-      <p>{registro.estoque.nome}</p>
+      <div className="flex flex-row">
+        <p>Estoque: </p>
+        <p className="ml-1">{registro.estoque.nome}</p>
+      </div>
       {registro.estoque.itens.map( (item) => {
         return (
-          <p>{item.nome}</p>
+          <div className="flex flex-row">
+            <p className="">Item: </p>
+            <p className="ml-1">{item.nome}</p>
+          </div>
         )
       } )}
     </div>
@@ -18,3 +24,4 @@ const RegistroCard = ({ registro }: RegistroCardProps) => {
 };
 
 export default RegistroCard;
+

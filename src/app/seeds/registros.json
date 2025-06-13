@@ -10,13 +10,6 @@
         "quantidade": 10,
         "quantidade_minimo": 2,
         "preco": 3500.00
-      },
-      {
-        "nome": "Camera Hikvision",
-        "descricao": "Câmera de Segurança Full HD 1080p 2MP Bullet 20 Metros Infravermelho Lente 2.8mm",
-        "quantidade": 5,
-        "quantidade_minimo": 2,
-        "preco": 1000.00
       }
     ]
   }

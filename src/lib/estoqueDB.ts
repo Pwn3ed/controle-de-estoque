@@ -1,7 +1,8 @@
 'use server'
 
 import connectDB from '@/lib/connectDB'
-import { Registro } from '@/models/models'
+import { Estoque, Registro } from '@/models/models'
+import { IRegistro } from '@/types/types'
 
 async function connDB(){
     await connectDB()
@@ -14,11 +15,23 @@ async function connDB(){
     })
 }
 
-export async function getEstoque() {
+export async function getRegistro() {
     await connDB();
     return await Registro.find({});
 }
 
-export async function resetEstoque() {
+export async function cadastrarRegistro(registro: IRegistro) {
     await connDB();
-    return await Registro.deleteMany({})}
+    return await Registro.insertOne(registro)
+}
+
+export async function resetRegistro() {
+    await connDB();
+    return await Registro.deleteMany({})
+}   
+
+    
+export async function getEstoque() {
+    await connDB();
+    return await Estoque.find({});
+}
