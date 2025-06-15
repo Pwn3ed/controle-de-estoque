@@ -1,40 +1,39 @@
+
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="mt-10 text-3xl">Sistema para Gestão de Estoque Modular</h1>
+      <h1 className="mt-10 text-3xl mb-5">Sistema para Gestão de Estoque Modular</h1>
 
       <div className="flex flex-col">
-        
-        <div className="flex flex-row justify-between m-5">
-          <p className="border-2 rounded p-2">
-            <Link href='/estoque'>Visualizar Estoque Geral</Link>
-          </p>
 
-          <p className="border-2 rounded p-2 ml-5">
-            <Link href='/'>Visualizar Registros de Entrada/Saída</Link>
-          </p>
+        <div className="flex flex-row justify-center gap-5 m-2">
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/estoque'>Visualizar Estoques</Link>
+
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/item'>Visualizar Itens</Link>
+
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/registro'>Visualizar Histórico de Entradas e Saídas</Link>
         </div>
 
-        <div className="flex flex-row justify-between m-5">
-          <p className="border-2 rounded p-2 ml-5">
-            <Link href='/cadastrar/estoque'>Cadastrar novo estoque</Link>
-          </p>
+        <div className="flex flex-row justify-center gap-5 m-2">
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/cadastrar/estoque'>Cadastrar novo estoque</Link>
 
-          <p className="border-2 rounded p-2 ml-5">
-            <Link href='/cadastrar/item'>Cadastrar novo item</Link>
-          </p>
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/cadastrar/item'>Cadastrar novo Item</Link>
         </div>
 
-        <div className="flex flex-row justify-between m-5">
-          <p className="border-2 rounded p-2 ml-5">
-            <Link href='/'>Nova Entrada</Link>
-          </p>
+        <div className="flex flex-row justify-center gap-5 m-2">
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/'>Nova Entrada</Link>
 
-          <p className="border-2 rounded p-2 ml-5">
-            <Link href='/'>Nova Saída</Link>
-          </p>
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/'>Nova Saída</Link>
+        </div>
+
+        <div className="flex flex-row justify-center m-2">
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/reset' >Reset Database</Link>
+        </div>
+
+        <div className="flex flex-row justify-center m-2">
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/seed' >Seed Database</Link>
         </div>
 
       </div>

@@ -1,8 +1,10 @@
-import { resetRegistro } from "@/lib/estoqueDB";
+import { resetEstoque, resetItem, resetRegistro } from "@/lib/estoqueDB";
 
 const Reset = () => {
 
     resetRegistro();
+    resetEstoque();
+    resetItem();
 
     return (
         <h1>O seu banco de dados foi resetado.</h1>

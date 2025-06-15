@@ -1,28 +1,28 @@
 import { Types } from "mongoose"
 
-//produto >  item
 
-export type IItemEstoque = {
-	_id?: String,
-	nome: string, // produto
-	descricao?: string, // produto
-	quantidade: number, // item
-	quantidade_minimo: number, // item
-	preco?: number, // produto
-	unidade?: number, // produto
+export type IItem = {
+	_id?: string,
+	nome: string,
+	descricao?: string,
+	quantidade: number,
+	quantidade_minimo?: number,
+	preco?: number,
+	// _id_estoque: string
 }
-	
+
 export type IEstoque = {
-	_id?: String,
+	_id?: string,
 	nome: string,
 	local: string,
-	descricao?: string,
-	itens: IItemEstoque[],
+	itens?: IItem[],
 }
 
 export type IRegistro = {
-	_id?: String,
+	_id?: string,
+	tipo: "ENTRADA" | "SAIDA"
 	estoque: IEstoque,
+	itens: IItem[]
 	// createdAt: Date,
 	// updatedAt: Date,
 }

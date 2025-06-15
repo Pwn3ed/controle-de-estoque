@@ -1,31 +1,28 @@
-import { IEstoque, IItemEstoque, IRegistro } from "@/types/types";
+import { IEstoque, IItem, IRegistro } from "@/types/types";
 import { model, models, Schema } from "mongoose";
 
-const itemEstoqueSchema = new Schema<IItemEstoque>({
-  _id: String,
+const itemSchema = new Schema<IItem>({
   nome: { type: String, required: true },
 	descricao: String,
   quantidade: { type: Number, required: true, min: 0 },
-  quantidade_minimo: { type: Number, required: true, min: 0 },
+  quantidade_minimo: Number,
   preco: Number,
-  unidade: String,
-});
+}, { _id: true });
 
 const estoqueSchema = new Schema<IEstoque>({
-  _id: String,
   nome: { type: String, required: true },
   local: { type: String, required: true },
-  descricao: String,
-  itens: [itemEstoqueSchema]
-});
+  itens: [itemSchema]
+}, { _id: true });
 
 const registroSchema = new Schema<IRegistro>({
-  _id: String,
+  tipo: { type: String, required: true, enum: ["ENTRADA", "SAIDA"] },
 	estoque: { type: estoqueSchema, required: true },
-}, { timestamps: true });
+  itens: { type: [itemSchema], required: true }
+}, { _id:true, timestamps: true });
 
-// export const ItemEstoque = models.ItemEstoque<IItemEstoque> || model<IItemEstoque>('Item', itemEstoqueSchema)
+export const Item = models?.Item || model<IItem>('Item', itemSchema)
 
-export const Estoque = models.Estoque<IEstoque> || model<IEstoque>('Estoque', estoqueSchema);
+export const Estoque = models?.Estoque || model<IEstoque>('Estoque', estoqueSchema);
 
-export const Registro = models.Registro<IRegistro> || model<IRegistro>('Registro', registroSchema);
+export const Registro = models?.Registro || model<IRegistro>('Registro', registroSchema);

@@ -1,0 +1,37 @@
+[
+    {
+        "nome": "Câmera Intelbras",
+        "descricao": "MIBO IM5 SC",
+        "quantidade": 10,
+        "quantidade_minimo": 2,
+        "preco": 3500.00
+    },
+    {
+        "nome": "Câmera Hikvision",
+        "descricao": "DS-2CD2143G0-I 4MP",
+        "quantidade": 15,
+        "quantidade_minimo": 3,
+        "preco": 4200.00
+    },
+    {
+        "nome": "Câmera Dahua",
+        "descricao": "IPC-HDW3549HP-AS-PV 5MP",
+        "quantidade": 8,
+        "quantidade_minimo": 2,
+        "preco": 3800.00
+    },
+    {
+        "nome": "Câmera TP-Link",
+        "descricao": "Tapo C200 1080p",
+        "quantidade": 20,
+        "quantidade_minimo": 5,
+        "preco": 2800.00
+    },
+    {
+        "nome": "Câmera Intelbras",
+        "descricao": "VHD 1220 B Full HD",
+        "quantidade": 12,
+        "quantidade_minimo": 3,
+        "preco": 3200.00
+    }
+]

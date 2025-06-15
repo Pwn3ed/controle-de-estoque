@@ -1,0 +1,22 @@
+[
+    {
+        "nome": "Estoque Principal",
+        "local": "Matriz"
+    },
+    {
+        "nome": "Estoque Carro 1",
+        "local": "Carro 1"
+    },
+    {
+        "nome": "Estoque Carro 2",
+        "local": "Carro 2"
+    },
+    {
+        "nome": "Estoque Carro 3",
+        "local": "Carro 3"
+    },
+    {
+        "nome": "Estoque Carro 4",
+        "local": "Carro 4"
+    }
+]

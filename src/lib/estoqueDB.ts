@@ -1,8 +1,8 @@
 'use server'
 
 import connectDB from '@/lib/connectDB'
-import { Estoque, Registro } from '@/models/models'
-import { IRegistro } from '@/types/types'
+import { Estoque, Item, Registro } from '@/models/models'
+import { IEstoque, IItem, IRegistro } from '@/types/types'
 
 async function connDB(){
     await connectDB()
@@ -15,23 +15,65 @@ async function connDB(){
     })
 }
 
+// ---------------
+
 export async function getRegistro() {
     await connDB();
     return await Registro.find({});
 }
 
-export async function cadastrarRegistro(registro: IRegistro) {
+export async function addRegistro(registro: IRegistro) {
     await connDB();
     return await Registro.insertOne(registro)
 }
 
 export async function resetRegistro() {
     await connDB();
-    return await Registro.deleteMany({})
+    return await Registro.deleteMany({});
 }   
 
-    
+// ---------------
+
 export async function getEstoque() {
     await connDB();
     return await Estoque.find({});
+}
+
+export async function getAllEstoque() {
+    await connDB();
+    const estoques = await Estoque.find({});
+    return estoques;
+}
+
+export const addEstoqueMany = async (estoques: IEstoque[]) => {
+    await connDB();
+    await Estoque.insertMany(estoques)
+}
+
+export async function resetEstoque() {
+    await connDB();
+    return await Estoque.deleteMany({});
+}   
+
+// ---------------
+
+export async function addItem(item: IItem) {
+    await connDB();
+    await Item.insertOne(item)
+}
+
+export const addItemMany = async (itens: IItem[]) => {
+    await connDB();
+    await Item.insertMany(itens)
+}
+
+export async function getAllItens() {
+    await connDB();
+    const itens = await Item.find({});
+    return itens;
+}
+
+export async function resetItem(){
+    await connDB();
+    return await Item.deleteMany({});
 }
