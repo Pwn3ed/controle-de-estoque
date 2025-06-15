@@ -1,7 +1,16 @@
 [
     {
         "nome": "Estoque Principal",
-        "local": "Matriz"
+        "local": "Matriz",
+        "itens": [
+            {
+                "nome": "Câmera Dahua",
+                "descricao": "IPC-HDW3549HP-AS-PV 5MP",
+                "quantidade": 8,
+                "quantidade_minimo": 2,
+                "preco": 3800.00
+            }
+        ]
     },
     {
         "nome": "Estoque Carro 1",

@@ -39,6 +39,11 @@ export async function getEstoque() {
     return await Estoque.find({});
 }
 
+export async function getEstoqueById(id: string) {
+    await connDB();
+    return await Estoque.findById(id);
+}
+
 export async function getAllEstoque() {
     await connDB();
     const estoques = await Estoque.find({});
@@ -71,6 +76,11 @@ export async function getAllItens() {
     await connDB();
     const itens = await Item.find({});
     return itens;
+}
+
+export async function getItemById(id: string) {
+    await connDB();
+    return await Item.findById(id)
 }
 
 export async function resetItem(){
