@@ -8,7 +8,7 @@ const Estoque = async () => {
     const estoques: IEstoque[] = await getAllEstoque();
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center"> 
 
             <div className='flex flex-col m-4 gap-2'>
                 { estoques.map( (estoque) => <Link key={estoque._id} href={'/estoque/'+estoque._id} ><EstoqueCard estoque={estoque} /></Link> ) }

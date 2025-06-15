@@ -1,8 +1,8 @@
 'use client'
 
-import { addItem } from "@/lib/estoqueDB";
-import { IItem } from "@/types/types";
-import { useState } from "react";
+import { addItem, getAllEstoque } from "@/lib/estoqueDB";
+import { IEstoque, IItem } from "@/types/types";
+import { useEffect, useState } from "react";
 
 
 const Item = () => {
@@ -12,18 +12,37 @@ const Item = () => {
     const [quantidade, setQuantidade] = useState(0);
     const [quantidadeMinimo, setQuantidadeMinimo] = useState(0);
     const [preco, setPreco] = useState(0.0);
+    const [idEstoque, setIdEstoque] = useState("");
+    const [selectedEstoque, setSelectedEstoque] = useState("");
 
+    const [estoques, setEstoques] = useState<IEstoque[]>([]);
+
+    
     const handleClickButton = () => {
         const item: IItem = {
             nome: nome,
             descricao: descricao,
             quantidade: quantidade,
             quantidade_minimo: quantidadeMinimo,
-            preco: preco
+            preco: preco,
+            _idEstoque: idEstoque,
         }
         
         addItem(item)
     }
+
+    useEffect( () => {
+        console.log("Salve")
+        const fetchData = async () => {
+            try {
+                    const data: IEstoque[] = await getAllEstoque();
+                    setEstoques(data);
+            } catch (error) {
+                console.log('error: '+error)
+            }
+        }
+    fetchData();
+    }, [])
 
     return (
         <div className="flex flex-col items-center">
@@ -55,6 +74,15 @@ const Item = () => {
                     <input onChange={ (e)=> setPreco(parseInt(e.currentTarget.value)) } className="ml-1 rounded text-black" type="number" />
                 </div>
 
+                <div className="flex flex-row justify-between p-2">
+                    <p className="text-xl">Selecione o estoque: </p>
+                    {/* <input onChange={ (e) => setIdEstoque(e.currentTarget.value) } className="ml-1 rounded text-black" type="range" /> */}
+                    <select className="w-52 rounded text-black text-center" value={selectedEstoque} onChange={ (e) => setSelectedEstoque(e.target.value) }>
+                        { estoques.map( (estoque) => {
+                            return estoque.nome
+                        } ) }
+                    </select>
+                </div>
 
             </div>
             

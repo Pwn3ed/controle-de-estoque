@@ -7,6 +7,7 @@ const itemSchema = new Schema<IItem>({
   quantidade: { type: Number, required: true, min: 0 },
   quantidade_minimo: Number,
   preco: Number,
+  _idEstoque: String
 }, { _id: true });
 
 const estoqueSchema = new Schema<IEstoque>({
