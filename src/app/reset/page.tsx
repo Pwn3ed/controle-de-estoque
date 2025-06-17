@@ -2,7 +2,7 @@ import { resetEstoque, resetItem, resetRegistro } from "@/lib/estoqueDB";
 
 const Reset = () => {
 
-    resetRegistro();
+    //resetRegistro();
     resetEstoque();
     resetItem();
 
