@@ -13,7 +13,6 @@ const EstoqueID = async ({ params }: paramsProps) => {
 
     return (
         <div className="flex flex-col items-center">
-            <p>Nome: {estoque.nome}</p>
             <p>Local: {estoque.local}</p>
             Itens: {estoque.itens?.map( (item) => <ItemEstoqueCard item={item} /> )}
 

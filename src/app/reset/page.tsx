@@ -7,7 +7,9 @@ const Reset = () => {
     resetItem();
 
     return (
-        <h1>O seu banco de dados foi resetado.</h1>
+        <div className="flex flex-col items-center">
+            <h1>O seu banco de dados foi resetado.</h1>
+        </div>
     )
 }
 

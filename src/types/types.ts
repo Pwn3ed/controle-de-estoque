@@ -13,7 +13,6 @@ export type IItem = {
 
 export type IEstoque = {
 	_id?: string,
-	nome: string,
 	local: string,
 	itens?: IItem[],
 }

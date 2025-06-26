@@ -79,7 +79,7 @@ const Item = () => {
                     {/* <input onChange={ (e) => setIdEstoque(e.currentTarget.value) } className="ml-1 rounded text-black" type="range" /> */}
                     <select className="w-52 rounded text-black text-center" value={selectedEstoque} onChange={ (e) => setSelectedEstoque(e.target.value) }>
                         { estoques.map( (estoque) => {
-                            return estoque.nome
+                            return estoque.local
                         } ) }
                     </select>
                 </div>

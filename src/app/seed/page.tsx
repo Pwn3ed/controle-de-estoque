@@ -8,7 +8,9 @@ const Seed = () => {
   addEstoqueMany(estoques);
 
   return (
-    <h1>Seeds adicionados ao banco de dados.</h1>
+    <div className='flex flex-col items-center'>
+      <h1>Seeds adicionados ao banco de dados.</h1>
+    </div>
   )
 }
 
