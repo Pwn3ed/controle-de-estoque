@@ -23,9 +23,9 @@ export default function Home() {
         </div>
 
         <div className="flex flex-row justify-center gap-5 m-2">
-          <Link className="border-2 rounded p-2 w-64 text-center" href='/'>Nova Entrada</Link>
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/registro/entrada'>Nova Entrada</Link>
 
-          <Link className="border-2 rounded p-2 w-64 text-center" href='/'>Nova Saída</Link>
+          <Link className="border-2 rounded p-2 w-64 text-center" href='/registro/saida'>Nova Saída</Link>
         </div>
 
         <div className="flex flex-row justify-center m-2">
