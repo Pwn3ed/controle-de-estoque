@@ -12,7 +12,6 @@ const itemSchema = new Schema<IItem>({
 
 const estoqueSchema = new Schema<IEstoque>({
   local: { type: String, required: true },
-  itens: [itemSchema]
 }, { _id: true });
 
 const registroSchema = new Schema<IRegistro>({

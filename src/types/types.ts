@@ -14,7 +14,6 @@ export type IItem = {
 export type IEstoque = {
 	_id?: string,
 	local: string,
-	itens?: IItem[],
 }
 
 export type IRegistro = {

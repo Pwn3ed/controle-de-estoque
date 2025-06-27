@@ -78,6 +78,12 @@ export async function getAllItens() {
     return itens;
 }
 
+export async function getAllItensFromEstoqueId(idEstoque: string) {
+    await connDB();
+    const itens = (await Item.find({})).filter( (item: IItem) => item._idEstoque == idEstoque )
+    return itens;
+}
+
 export async function getItemById(id: string) {
     await connDB();
     return await Item.findById(id)

@@ -37,16 +37,12 @@ const ItemID = async ({ params }: paramsProps) => {
                 <p>{item.preco}</p>
             </div>
 
+            <div className="flex flex-row justify-between">
+                <p>IdEstoque: </p>
+                <p></p>
+            </div>
+
         </div>
-
-
-    // {
-    //     "nome": "Câmera Intelbras",
-    //     "descricao": "MIBO IM5 SC",
-    //     "quantidade": 10,
-    //     "quantidade_minimo": 2,
-    //     "preco": 3500.00
-    // },
 
     )
 }

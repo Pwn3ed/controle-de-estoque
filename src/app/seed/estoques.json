@@ -1,15 +1,6 @@
 [
     {
-        "local": "Deposito Geral",
-        "itens": [
-            {
-                "nome": "Câmera Dahua",
-                "descricao": "IPC-HDW3549HP-AS-PV 5MP",
-                "quantidade": 8,
-                "quantidade_minimo": 2,
-                "preco": 3800.00
-            }
-        ]
+        "local": "Deposito Geral"
     },
     {
         "local": "Carro Fiat Palio"

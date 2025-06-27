@@ -2,10 +2,11 @@
 
 import { addItem } from "@/lib/estoqueDB";
 import { IEstoque, IItem } from "@/types/types";
+import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type ItemAddProps = {
-    estoques: IEstoque[];
+    estoques: string;
 }
 
 const ItemAdd = ({ estoques }: ItemAddProps) => {
@@ -28,7 +29,9 @@ const ItemAdd = ({ estoques }: ItemAddProps) => {
         };
         
         addItem(item)
+        redirect('/')
     }
+
 
     return (
         <div className="flex flex-col items-center">
@@ -70,7 +73,7 @@ const ItemAdd = ({ estoques }: ItemAddProps) => {
                     >
                         <option value="" >Selecione um estoque</option>
 
-                        {/* {estoques.map( (estoque) => <option key={estoque._id} value={estoque._id} >{estoque.local}</option> )} */}
+                        {JSON.parse(estoques).map( (estoque:IEstoque) => <option key={estoque._id} value={estoque._id} >{estoque.local}</option> )}
 
                     </select>
 
