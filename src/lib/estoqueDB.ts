@@ -50,6 +50,11 @@ export async function getAllEstoque() {
     return estoques;
 }
 
+export async function addEstoque(estoque: IEstoque) {
+    await connDB();
+    return await Estoque.insertOne(estoque);
+}
+
 export const addEstoqueMany = async (estoques: IEstoque[]) => {
     await connDB();
     await Estoque.insertMany(estoques)
@@ -87,6 +92,11 @@ export async function getAllItensFromEstoqueId(idEstoque: string) {
 export async function getItemById(id: string) {
     await connDB();
     return await Item.findById(id)
+}
+
+export async function updateItemById(item: IItem) {
+    await connDB();
+    return await Item.findByIdAndUpdate(item);
 }
 
 export async function resetItem(){

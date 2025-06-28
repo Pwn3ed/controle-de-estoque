@@ -4,7 +4,7 @@ import { addEstoqueMany, addItemMany } from '@/lib/estoqueDB';
 
 const Seed = () => {
 
-  addItemMany(itens);
+  // addItemMany(itens);
   addEstoqueMany(estoques);
 
   return (

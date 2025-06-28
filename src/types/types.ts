@@ -8,7 +8,7 @@ export type IItem = {
 	quantidade: number,
 	quantidade_minimo?: number,
 	preco?: number,
-	_idEstoque?: string,
+	_idEstoque: string,
 }
 
 export type IEstoque = {
