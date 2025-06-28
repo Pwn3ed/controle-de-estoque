@@ -94,9 +94,16 @@ export async function getItemById(id: string) {
     return await Item.findById(id)
 }
 
-export async function updateItemById(item: IItem) {
+export async function updateItemById(id: string, item: IItem) {
     await connDB();
-    return await Item.findByIdAndUpdate(item);
+    return await Item.findByIdAndUpdate(id, {
+        nome: item.nome,
+        descricao: item.descricao,
+        quantidade: item.quantidade,
+        quantidade_minimo: item.quantidade_minimo,
+        preco: item.preco,
+        _idEstoque: item._idEstoque
+    });
 }
 
 export async function resetItem(){
