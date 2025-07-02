@@ -19,8 +19,8 @@ export type IEstoque = {
 export type IRegistro = {
 	_id?: string,
 	tipo: "ENTRADA" | "SAIDA"
-	estoque: IEstoque,
-	itens: IItem[]
+	_idEstoque: string,
+	_idItens: string[]
 	// createdAt: Date,
 	// updatedAt: Date,
 }

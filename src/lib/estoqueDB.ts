@@ -106,6 +106,16 @@ export async function updateItemById(id: string, item: IItem) {
     });
 }
 
+export async function updateQuantidadeItemById(id: string, qtd: number) {
+    await connDB();
+    return await Item.findByIdAndUpdate(id, {quantidade: qtd})
+}
+
+export async function deleteItemById(id: string) {
+    await connDB();
+    return await Item.deleteOne({ _id: id })
+}
+
 export async function resetItem(){
     await connDB();
     return await Item.deleteMany({});

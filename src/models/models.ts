@@ -16,8 +16,10 @@ const estoqueSchema = new Schema<IEstoque>({
 
 const registroSchema = new Schema<IRegistro>({
   tipo: { type: String, required: true, enum: ["ENTRADA", "SAIDA"] },
-	estoque: { type: estoqueSchema, required: true },
-  itens: { type: [itemSchema], required: true }
+  _idEstoque: String,
+  _idItens: [String]
+	// estoque: { type: estoqueSchema, required: true },
+  // itens: { type: [itemSchema], required: true }
 }, { _id:true, timestamps: true });
 
 export const Item = models?.Item || model<IItem>('Item', itemSchema)

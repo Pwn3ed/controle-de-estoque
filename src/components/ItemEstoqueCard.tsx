@@ -1,3 +1,6 @@
+'use client'
+
+import { deleteItemById, updateQuantidadeItemById } from "@/lib/estoqueDB";
 import { IItem } from "@/types/types";
 
 type ItemProps = {
@@ -5,6 +8,16 @@ type ItemProps = {
 }
 
 const ItemEstoqueCard = ( { item }: ItemProps ) => {
+
+    const removerItem = () => {
+        const qtd = prompt("Quantos itens você gostaria de remover?")
+        console.log(qtd)
+
+        const newQuantidade = item.quantidade - parseInt(qtd ?? '');
+
+        updateQuantidadeItemById(item._id ?? '', newQuantidade)
+    }
+
     return (
         <div className="flex flex-col border rounded w-[50vw] p-2">
 
@@ -32,6 +45,9 @@ const ItemEstoqueCard = ( { item }: ItemProps ) => {
                 <p>Preço:</p>
                 <p>R${item.preco}</p>
             </div>
+
+            <button className="border-2 rounded p-2 mb-4 w-64 bg-red-500 text-black self-center" onClick={() => removerItem()} >Remover</button>
+            {/* <Link className="border-2 rounded p-2 mb-4 w-64 text-center bg-green-500 text-black" href='/cadastrar/item'>Cadastrar novo item</Link> */}
             
         </div>
     )
