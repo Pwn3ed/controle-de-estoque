@@ -13,6 +13,7 @@ const Estoque = () => {
         };
 
         addEstoque(estoque);
+        alert("Estoque adicionado com sucesso")
         redirect('/');
     }
 

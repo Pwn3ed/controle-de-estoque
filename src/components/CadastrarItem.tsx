@@ -1,4 +1,3 @@
-
 'use client'
 
 import { addItem } from "@/lib/estoqueDB";
@@ -28,9 +27,18 @@ const CadastrarItem = ({ estoques }: CadastrarItemProps) => {
             preco: preco,
             _idEstoque: selectedEstoque,
         };
-        
-        addItem(item)
-        redirect('/')
+
+        if (item.nome == '') {
+            alert("Nome não pode estar vazio")
+        }
+        else if (item._idEstoque == '') {
+            alert("Estoque não pode estar vazio")
+        }
+        else {
+            addItem(item)
+            alert("Item adicionado com sucesso")
+            redirect('/')
+        }
     }
 
 

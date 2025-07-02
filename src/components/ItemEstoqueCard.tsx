@@ -2,20 +2,43 @@
 
 import { deleteItemById, updateQuantidadeItemById } from "@/lib/estoqueDB";
 import { IItem } from "@/types/types";
+import { redirect } from "next/navigation";
 
 type ItemProps = {
-    item: IItem,
+    itemJSON: string,
 }
 
-const ItemEstoqueCard = ( { item }: ItemProps ) => {
+const ItemEstoqueCard = ( { itemJSON }: ItemProps ) => {
 
-    const removerItem = () => {
+    const item: IItem = JSON.parse(itemJSON)
+
+    const adicionarQuantidade = () => {
+        const qtd = prompt("Quantos itens você gostaria de adicionar?")
+
+        const newQuantidade = item.quantidade + parseInt(qtd ?? '');
+
+        if (newQuantidade < 0 || parseInt(qtd ?? '') < 0) {
+            alert("Quantidade não pode ser negativa.")
+        } else {
+            updateQuantidadeItemById(item._id ?? '', newQuantidade)
+    
+            redirect('/estoque/'+item._idEstoque)
+        }
+    }
+
+    const removerQuantidade = () => {
         const qtd = prompt("Quantos itens você gostaria de remover?")
-        console.log(qtd)
 
         const newQuantidade = item.quantidade - parseInt(qtd ?? '');
 
-        updateQuantidadeItemById(item._id ?? '', newQuantidade)
+        if (newQuantidade < 0 || parseInt(qtd ?? '') < 0) {
+            alert("Quantidade não pode ser negativa.")
+        } else {
+            updateQuantidadeItemById(item._id ?? '', newQuantidade)
+    
+            redirect('/estoque/'+item._idEstoque)
+        }
+
     }
 
     return (
@@ -46,8 +69,10 @@ const ItemEstoqueCard = ( { item }: ItemProps ) => {
                 <p>R${item.preco}</p>
             </div>
 
-            <button className="border-2 rounded p-2 mb-4 w-64 bg-red-500 text-black self-center" onClick={() => removerItem()} >Remover</button>
-            {/* <Link className="border-2 rounded p-2 mb-4 w-64 text-center bg-green-500 text-black" href='/cadastrar/item'>Cadastrar novo item</Link> */}
+            <div className="flex justify-center gap-2">
+                <button className="border-2 rounded p-2 mb-4 w-64 bg-green-500 text-black" onClick={() => adicionarQuantidade()} >Adicionar quantidade</button>
+                <button className="border-2 rounded p-2 mb-4 w-64 bg-red-500 text-black" onClick={() => removerQuantidade()} >Remover quantidade</button>
+            </div>
             
         </div>
     )

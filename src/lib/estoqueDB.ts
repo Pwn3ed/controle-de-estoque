@@ -1,8 +1,8 @@
 'use server'
 
 import connectDB from '@/lib/connectDB'
-import { Estoque, Item, Registro } from '@/models/models'
-import { IEstoque, IItem, IRegistro } from '@/types/types'
+import { Estoque, Item } from '@/models/models'
+import { IEstoque, IItem } from '@/types/types'
 
 async function connDB(){
     await connectDB()
@@ -14,25 +14,6 @@ async function connDB(){
         console.log(err)
     })
 }
-
-// ---------------
-
-export async function getRegistro() {
-    await connDB();
-    return await Registro.find({});
-}
-
-export async function addRegistro(registro: IRegistro) {
-    await connDB();
-    return await Registro.insertOne(registro)
-}
-
-export async function resetRegistro() {
-    await connDB();
-    return await Registro.deleteMany({});
-}   
-
-// ---------------
 
 export async function getEstoque() {
     await connDB();
@@ -55,6 +36,11 @@ export async function addEstoque(estoque: IEstoque) {
     return await Estoque.insertOne(estoque);
 }
 
+export async function deleteEstoqueById(id: string) {
+    await connDB();
+    return await Estoque.findByIdAndDelete({_id: id})
+}
+
 export const addEstoqueMany = async (estoques: IEstoque[]) => {
     await connDB();
     await Estoque.insertMany(estoques)
@@ -65,7 +51,7 @@ export async function resetEstoque() {
     return await Estoque.deleteMany({});
 }   
 
-// ---------------
+// --------------- item ----------------
 
 export async function addItem(item: IItem) {
     await connDB();

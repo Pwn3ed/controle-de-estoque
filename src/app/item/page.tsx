@@ -10,10 +10,14 @@ const Item = async () => {
     return (
         <div className="flex flex-col items-center m-4">
 
-            <Link className="border-2 rounded p-2 mb-4 w-64 text-center bg-green-500 text-black" href='/cadastrar/item'>Cadastrar novo item</Link>
+            <Link href={'/cadastrar/item'} className="border-2 rounded p-2 mb-4 w-64 bg-green-500 text-center text-black" >Cadastrar novo item</Link>
 
             <div className='flex flex-col gap-2'>
-                { itens.map( (item) => <Link key={item._id} href={'/item/'+item._id}><ItemCard item={item} /></Link> ) }
+                { itens[0] ?
+                itens.map( (item) => <Link key={item._id} href={'/item/'+item._id}><ItemCard item={item} /></Link> )
+                :
+                <p>Nenhum item encontrado</p>
+                }
             </div>
 
         </div>

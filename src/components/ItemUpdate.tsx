@@ -1,6 +1,6 @@
 'use client'
 
-import { updateItemById } from "@/lib/estoqueDB";
+import { deleteItemById, updateItemById } from "@/lib/estoqueDB";
 import { IEstoque, IItem } from "@/types/types";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ const ItemUpdate = ({ itemJSON, estoquesJSON }: ItemUpdateProps) => {
     const item: IItem = JSON.parse(itemJSON)
     const estoques: IEstoque[] = JSON.parse(estoquesJSON)
     
-    const handleButtonClick = () => {
+    const handleButtonClickAtualizar = () => {
         const newItem = {
             nome: nome,
             descricao: descricao,
@@ -33,6 +33,14 @@ const ItemUpdate = ({ itemJSON, estoquesJSON }: ItemUpdateProps) => {
         }
         updateItemById(String(item._id), newItem)
         redirect('/')
+    }
+
+    const handleButtonClickRemover = () => {
+        if (confirm("Tem certeza que deseja remover o item?")) {
+            deleteItemById(item._id ?? '') 
+            redirect('/')
+        }
+
     }
     
     useEffect(() => {
@@ -85,7 +93,11 @@ const ItemUpdate = ({ itemJSON, estoquesJSON }: ItemUpdateProps) => {
 
             </div>
 
-            <button className="border-2 rounded p-2 w-64 self-center" onClick={ () => handleButtonClick() }>Atualizar Item</button>
+            <div className="flex justify-center mt-2 gap-2">
+                <button className="border-2 rounded p-2 mb-2 w-64 bg-blue-500 text-black" onClick={ () => handleButtonClickAtualizar() }>Atualizar Item</button>
+
+                <button className="border-2 rounded p-2 mb-2 w-64 bg-red-500 text-black" onClick={ () => handleButtonClickRemover() }>Remover Item</button>
+            </div>
 
         </div>
     )

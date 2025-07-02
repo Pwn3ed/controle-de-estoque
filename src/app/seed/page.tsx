@@ -1,6 +1,6 @@
 import estoques from './estoques.json'
 import itens from './itens.json'
-import { addEstoqueMany, addItemMany } from '@/lib/estoqueDB';
+import { addEstoqueMany, addItemMany, getAllEstoque } from '@/lib/estoqueDB';
 
 const Seed = () => {
 

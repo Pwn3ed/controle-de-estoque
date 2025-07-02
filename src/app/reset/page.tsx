@@ -1,8 +1,7 @@
-import { resetEstoque, resetItem, resetRegistro } from "@/lib/estoqueDB";
+import { resetEstoque, resetItem } from "@/lib/estoqueDB";
 
 const Reset = () => {
 
-    //resetRegistro();
     resetEstoque();
     resetItem();
 

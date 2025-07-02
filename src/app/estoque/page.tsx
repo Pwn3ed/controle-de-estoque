@@ -10,8 +10,16 @@ const Estoque = async () => {
     return (
         <div className="flex flex-col items-center"> 
 
+            <Link href={'/cadastrar/estoque'} className="border-2 rounded p-2 mb-4 w-64 bg-green-500 text-center text-black" >Cadastrar novo estoque</Link>
+
+
             <div className='flex flex-col m-4 gap-2'>
-                { estoques.map( (estoque) => <Link key={estoque._id} href={'/estoque/'+estoque._id} ><EstoqueCard estoque={estoque} /></Link> ) }
+                {
+                    estoques[0] ?
+                    estoques.map( (estoque) => <Link key={estoque._id} href={'/estoque/'+estoque._id} ><EstoqueCard estoque={estoque} /></Link> )
+                    :
+                    <p>Nenhum estoque encontrado</p>
+                }
             </div>
 
         </div>
