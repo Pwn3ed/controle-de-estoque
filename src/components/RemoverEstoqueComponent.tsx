@@ -12,8 +12,8 @@ const RemoverEstoqueComponent = ({ id }: RemoverEstoqueComponentProps) => {
     const removerEstoque = () => {
         if (confirm("Cuidado, ao confirmar você excluirá este estoque com todos seus itens, você tem certeza?")) {
             deleteEstoqueById(id)
+            redirect('/')
         }
-        redirect('/')
     }
 
     return (
