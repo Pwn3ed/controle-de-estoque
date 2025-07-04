@@ -19,7 +19,7 @@ const EstoqueID = async ({ params }: paramsProps) => {
     }
 
     return (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center m-4">
             <RemoverEstoqueComponent id={String(estoque._id)} />
             <p>Local: {estoque.local}</p>
 

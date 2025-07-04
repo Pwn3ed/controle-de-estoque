@@ -8,7 +8,7 @@ const Estoque = async () => {
     const estoques: IEstoque[] = await getAllEstoque();
 
     return (
-        <div className="flex flex-col items-center"> 
+        <div className="flex flex-col items-center m-4"> 
 
             <Link href={'/cadastrar/estoque'} className="border-2 rounded p-2 mb-4 w-64 bg-green-500 text-center text-black" >Cadastrar novo estoque</Link>
 
